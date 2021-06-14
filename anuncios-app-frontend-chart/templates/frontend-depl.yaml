@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+     app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: hudsonfranca/anuncios-frontend:latest
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "600Mi"
+          requests:
+            cpu: "0.5"
+            memory: "300Mi"
+        ports:
+        - containerPort: 3000
+        env:
+          - name: NEXT_PUBLIC_BACKEND_URL
+            valueFrom: 
+              configMapKeyRef:
+                name: {{ .Release.Name }}-frontend-configmap
+                key: backend_url
+          - name: NEXT_PUBLIC_BACKEND_SERVICE_NAME
+            value: {{ .Release.Name }}-frontend-service
+       
+

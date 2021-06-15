@@ -8,7 +8,8 @@ import {
   Button,
   Card,
   ListGroup,
-  ListGroupItem
+  ListGroupItem,
+  Alert
 } from 'react-bootstrap'
 import {
   Image,
@@ -52,13 +53,28 @@ const Home = ({
   const handleCardClick = (id: string) => {
     return router.push(`/adverts/${id}`)
   }
-
+  const [showAlert, setShowAlert] = useState(true)
   return (
     <>
       <Head>
         <title>AnunciosApp</title>
       </Head>
       <Container fluid className="p-0 min-vh-100">
+        <Alert show={showAlert} variant="danger">
+          <Alert.Heading>
+            Se você estiver com o adblock ligado por favor desligue, pois ele
+            pode impedir que o site funcione corretamente.
+          </Alert.Heading>
+          <hr />
+          <div className="d-flex justify-content-end">
+            <Button
+              onClick={() => setShowAlert(false)}
+              variant="outline-success"
+            >
+              Fechar
+            </Button>
+          </div>
+        </Alert>
         <Image>
           <Form onSubmit={handleSubmit} className="p-3">
             <Form.Row className="d-flex justify-content-center mb-3">

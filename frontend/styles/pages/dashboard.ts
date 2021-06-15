@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Map, Money } from '@styled-icons/boxicons-regular'
 
 export const Container = styled.div`
-  padding: 50px 50px 20px 50px;
+  padding: 50px 20px 50px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,6 +31,7 @@ export const Title = styled.div`
   background-color: ${props => props.theme.colors.secondary};
   color: ${props => props.theme.colors.text};
   border-radius: 5px;
+  padding: 10px;
 `
 
 export const Options = styled.div`

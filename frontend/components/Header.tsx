@@ -16,15 +16,21 @@ const Header = () => {
     isAuthenticated && { label: 'Minha conta', href: '/dashboard' }
   ]
     .filter(linkConfig => linkConfig)
-    .map(({ label, href }) => {
+    .map(({ label, href }, index) => {
       return (
         <Link href={href} key={href} passHref>
-          <Nav.Link>{label}</Nav.Link>
+          <Nav.Link eventKey={index}>{label}</Nav.Link>
         </Link>
       )
     })
   return (
-    <Navbar bg="light" expand="lg" fixed="top" className="mb-4 ">
+    <Navbar
+      bg="light"
+      expand="lg"
+      fixed="top"
+      className="mb-4"
+      collapseOnSelect
+    >
       <Navbar.Brand
         onClick={() => router.push('/')}
         style={{ cursor: 'pointer' }}
@@ -36,7 +42,7 @@ const Header = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Link href="/" passHref>
-            <Nav.Link>Home</Nav.Link>
+            <Nav.Link eventKey="5">Home</Nav.Link>
           </Link>
         </Nav>
         <Nav>{links}</Nav>

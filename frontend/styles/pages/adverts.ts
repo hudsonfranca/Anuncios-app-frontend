@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Pricetags, Person, Phone, Map } from '@styled-icons/evaicons-solid'
 
 export const Container = styled.div`
-  padding: 50px 50px 20px 50px;
+  padding: 30px 30px 10px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,6 +70,7 @@ export const Description = styled.div`
   background-color: ${props => props.theme.colors.text};
   width: 100%;
   height: 100%;
+  padding: 5px;
 `
 export const PhoneIcon = styled(Phone)`
   color: ${props => props.theme.colors.primary};

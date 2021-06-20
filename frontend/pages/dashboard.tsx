@@ -224,7 +224,7 @@ const Dashboard = ({
           {adverts?.adverts ? (
             <CardContainer>
               {adverts.adverts.map((add: AdvertsById) => (
-                <Card key={add.id}>
+                <Card key={add.id} style={{ width: '100%', height: '100%' }}>
                   <Card.Header className="d-flex justify-content-end">
                     <DropdownButton
                       id="dropdown-basic-button"

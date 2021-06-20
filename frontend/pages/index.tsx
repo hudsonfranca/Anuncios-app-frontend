@@ -129,7 +129,11 @@ const Home = ({
         {adverts?.adverts && (
           <CardContainer>
             {adverts.adverts.map(add => (
-              <Card key={add.id} onClick={() => handleCardClick(add.id)}>
+              <Card
+                style={{ width: '100%', height: '100%' }}
+                key={add.id}
+                onClick={() => handleCardClick(add.id)}
+              >
                 <Card.Img variant="top" src={add.advertsPhotos[0].url} />
                 <Card.Body>
                   <Card.Title>{add.name}</Card.Title>
